@@ -1,0 +1,53 @@
+version: "3.7"
+
+services:
+  landing-html:
+    image: landing-html
+    container_name: landing-html
+    networks:
+      - proxy
+    build:
+      dockerfile: Dockerfile
+      context: ./
+      cache_from:
+      - landing-html
+    restart: unless-stopped
+    # labels:
+    #   - traefik.http.routers.registry.middlewares=traefik-compress
+    #   - traefik.http.routers.landing.rule=Host("${SUBDOMAIN}${DOMAIN}")
+    #   - traefik.http.routers.landing.entrypoints=https
+    #   - traefik.http.routers.landing.tls=true
+    #   - traefik.http.routers.landing.tls.certresolver=${CERT_RESOLVER}
+    #   - traefik.docker.network=proxy
+
+  landing-proxy:
+    image: landing-proxy
+    container_name: landing-proxy
+    environment:
+      - DOMAIN
+      - SUBDOMAIN
+      - COMPOSE_PROJECT_NAME
+    networks:
+      - proxy
+    depends_on:
+      - landing-html
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+      cache_from:
+      - landing-proxy
+    restart: always
+    labels:
+      - traefik.http.routers.registry.middlewares=traefik-compress
+      - traefik.http.routers.landing.rule=Host("${SUBDOMAIN}${DOMAIN}")
+      - treafik.http.middlewares.landing-redirect.redirectregex.regex=^(https?://)www.(.*)$$
+      - traefik.http.middlewares.landing-redirect.redirectregex.replacement=$${1}$${2}
+      - traefik.http.routers.landing.middlewares=landing-redirect
+      - traefik.http.routers.landing.entrypoints=https
+      - traefik.http.routers.landing.tls=true
+      - traefik.http.routers.landing.tls.certresolver=${CERT_RESOLVER}
+      - traefik.docker.network=proxy
+
+networks:
+  proxy:
+    external: true

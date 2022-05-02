@@ -1,0 +1,46 @@
+.cv {
+  display: flex;
+  justify-content: center;
+}
+
+.cv__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  width: 260px;
+  height: 45px;
+  padding: 22px;
+  font-size: 14px;
+  letter-spacing: 1.8px;
+  font-weight: bold;
+  background-color: #F2A92C;
+  color: #000;
+  border-radius: 45px;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  text-shadow: none;
+  animation: 2s infinite alternate wow;
+}
+
+@keyframes wow {
+  from {
+    box-shadow: 0 0 0 #F2A92C, 0 0 3px rgba(161, 230, 191, 0), 0 0 0 #F2A92C, 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  to {
+    box-shadow: 0 0 4px #F2A92C, 0 0 3px rgba(161, 230, 191, 0.41), 0 0 20px #F2A92C, 5px 9px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.cv__link:hover {
+  box-shadow: 0 0 4px #F2A92C, 0 0 3px rgba(161, 230, 191, 0.41), 0 0 20px #F2A92C, 5px 9px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+  .cv__link {
+    width: fit-content;
+  }
+}

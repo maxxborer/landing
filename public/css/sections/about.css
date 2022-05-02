@@ -1,0 +1,35 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about__avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+}
+
+.about__content {
+  line-height: 1.04;
+}
+
+.about__name {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  line-height: 1.04;
+  margin: 1.3em 0 0.2em 0;
+}
+
+.about__position {
+  font-family: var(--font-primary);
+  font-size: 1.9rem;
+  font-weight: bold;
+  line-height: 1.04;
+}
+
+.about__description {
+  font-size: 1.04rem;
+  margin: 0 -16px;
+}

@@ -1,0 +1,24 @@
+stages:
+  - deploy
+
+variables:
+  COMPOSE_PROJECT_NAME: landing
+
+deploy:
+  stage: deploy
+  image: docker/compose
+  tags:
+    - portal-1
+  before_script:
+    - echo -en "DOMAIN=$DOMAIN\nSUBDOMAIN=$SUBDOMAIN\nCOMPOSE_PROJECT_NAME=$COMPOSE_PROJECT_NAME\n" > .env
+    - source .env
+    - docker info
+    - docker-compose version
+    - docker-compose config
+    - docker-compose ps
+  script:
+    - docker-compose build
+    - docker-compose --env-file .env up -d
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: on_success
