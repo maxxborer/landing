@@ -2,8 +2,8 @@
   "name": "Maxx Borer - Frontend Developer",
   "short_name": "maxxborer",
   "description": "👋 Hi! I am a Front-end Developer. 👾 On this site you will find my skills, contacts, as well as my CV",
-  "theme_color": "#F2A92C",
-  "background_color": "#F2A92C",
+  "theme_color": "#44DA86",
+  "background_color": "#44DA86",
   "display": "fullscreen",
   "start_url": "https://maxxborer.com",
   "icons": [

@@ -41,3 +41,7 @@
   height: 32px;
   filter: invert(1);
 }
+
+.contacts__item-icon-invert {
+  filter: invert(0);
+}
