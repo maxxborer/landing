@@ -11,14 +11,11 @@ services:
       context: ./
       cache_from:
       - landing-html
+    environment:
+      - MEMCACHIER_USERNAME
+      - MEMCACHIER_PASSWORD
+      - MEMCACHIER_SERVERS
     restart: unless-stopped
-    # labels:
-    #   - traefik.http.routers.registry.middlewares=traefik-compress
-    #   - traefik.http.routers.landing.rule=Host("${SUBDOMAIN}${DOMAIN}")
-    #   - traefik.http.routers.landing.entrypoints=https
-    #   - traefik.http.routers.landing.tls=true
-    #   - traefik.http.routers.landing.tls.certresolver=${CERT_RESOLVER}
-    #   - traefik.docker.network=proxy
 
   landing-proxy:
     image: landing-proxy
@@ -27,6 +24,9 @@ services:
       - DOMAIN
       - SUBDOMAIN
       - COMPOSE_PROJECT_NAME
+      - MEMCACHIER_USERNAME
+      - MEMCACHIER_PASSWORD
+      - MEMCACHIER_SERVERS
     networks:
       - proxy
     depends_on:

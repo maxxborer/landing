@@ -4,7 +4,10 @@ var express = require('express')
   , path = require('path')
   , bodyParser = require('body-parser')
   , favicon = require('serve-favicon')
-  , methodOverride = require('method-override');
+  , methodOverride = require('method-override')
+  , memjs = require('memjs');
+
+require('dotenv').config()
 
 var app = express();
 
@@ -24,3 +27,9 @@ app.get('/', function(req,res){
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+var mc = memjs.Client.create(process.env.MEMCACHIER_SERVERS, {
+  failover: true,  // default: false
+  timeout: 1,      // default: 0.5 (seconds)
+  keepAlive: true  // default: false
+})
