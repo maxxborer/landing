@@ -8,7 +8,22 @@
 .about__avatar {
   width: 180px;
   height: 180px;
-  border-radius: 100%;
+  border-radius: 20%;
+}
+
+.about__avatar_2 {
+  width: 182px;
+  height: 182px;
+  border-radius: 20%;
+  position: relative;
+  top: -91px;
+  margin-bottom: -170px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.about__avatar_2:hover, .about__avatar_2:focus {
+  opacity: 1;
 }
 
 .about__content {
@@ -27,6 +42,25 @@
   font-size: 1.9rem;
   font-weight: bold;
   line-height: 1.04;
+  margin-bottom: 1.3em;
+}
+
+@media (max-width: 600px) {
+  .about__position {
+    font-size: 1.3rem;
+  }
+
+  .about__avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .about__avatar_2 {
+    width: 102px;
+    height: 102px;
+    top: -51px;
+    margin-bottom: -90px;
+  }
 }
 
 .about__description {

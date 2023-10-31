@@ -1,9 +1,9 @@
 {
-  "name": "Maxx Borer - Frontend Developer",
+  "name": "Maxim Bureev - Frontend Developer",
   "short_name": "maxxborer",
-  "description": "👋 Hi! I am a Front-end Developer. 👾 On this site you will find my skills, contacts, as well as my CV",
-  "theme_color": "#44DA86",
-  "background_color": "#44DA86",
+  "description": "👋 Hi! I am a Front-end Developer. 🦄 On this site you will find my skills, contacts, as well as my CV",
+  "theme_color": "#822FD5",
+  "background_color": "#822FD5",
   "display": "fullscreen",
   "start_url": "https://maxxborer.com",
   "icons": [

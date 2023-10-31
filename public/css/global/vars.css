@@ -1,6 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+@font-face {
+  font-family: 'OpticianSans';
+  src: url('/fonts/Optiker-K.woff') format('woff'), url('/fonts/Optiker-K.ttf') format('truetype');
+  src: url('/fonts/Optiker-K.woff2') format('woff2'), url('/fonts/Optiker-K.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+}
 
 :root {
-  --font-primary: 'Maven Pro', Helvetica, Arial;
+  --font-primary: 'OpticianSans', 'Maven Pro', Helvetica, Arial;
   --max-section-size: 820px;
 }

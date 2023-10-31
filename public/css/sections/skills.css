@@ -18,19 +18,17 @@
 }
 
 .skills__item {
-  height: 140px;
-  width: 140px;
-  margin: 5px;
+  height: 120px;
+  width: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  border-radius: 14px;
   padding: 16px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .skills__item {
     width: 40%;
   }
